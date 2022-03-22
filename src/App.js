@@ -1,8 +1,12 @@
-import InputFiled from './InputField';
+import Home from './Home.js';
+import Welcome from './Welcome.js';
 
 function App() {
   return (
-    <InputFiled />
+    <div className='App'>
+      <Home />
+      <Welcome />
+    </div>
   )
 }
 

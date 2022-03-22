@@ -1,7 +1,9 @@
-
+import InputFiled from './InputField';
 
 function App() {
-  return null
+  return (
+    <InputFiled />
+  )
 }
 
 export default App;

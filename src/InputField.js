@@ -1,13 +1,18 @@
 import React from 'react';
 
-export default function InputField() {
-  return (
-    <div>
-      <form action="/action_page.php">
-      <label for="name">Your Name:</label>
-      <input type="text" id="name" name="name"></input>
-      <input type="submit" value="Submit"></input>
-      </form>
-    </div>
-  );
+export default class InputField extends React.Component {
+    state={
+        name:''
+    }
+    handleChange = event =>{
+        console.log(event.target.value);
+    }
+    render(){
+        return (
+            <div>
+              <input onChange={this.handleChange} type="text" id="name" name="name"/>
+            </div>
+          );
+    }
+  
 }

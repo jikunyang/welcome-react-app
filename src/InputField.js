@@ -2,15 +2,17 @@ import React from 'react';
 
 export default class InputField extends React.Component {
     state={
-        name:''
+        name:""
     }
     handleChange = event =>{
-        console.log(event.target.value);
+        //console.log(event.target.value);
+        this.setState({ name: event.target.value});
     }
     render(){
         return (
             <div>
-              <input onChange={this.handleChange} type="text" id="name" name="name"/>
+              <input value={this.state.name} onChange={this.handleChange} />
+              
             </div>
           );
     }

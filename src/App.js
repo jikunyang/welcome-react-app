@@ -1,11 +1,14 @@
 import Home from './Home.js';
 import Welcome from './Welcome.js';
+import { Route, Link, Routes } from "react-router-dom";
 
 function App() {
   return (
     <div className='App'>
-      <Home />
-      <Welcome />
+        <Routes>
+          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/welcome" element={<Welcome/>} />
+        </Routes>
     </div>
   )
 }

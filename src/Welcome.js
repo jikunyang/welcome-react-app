@@ -10,7 +10,7 @@ render(){
           <p>
            Welcome   
           </p>
-          <p>{this.props.name.state.value}</p>
+          <p>{this.props.name}</p>
         </div>
         
     

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Link, useNavigate } from 'react-router-dom';
-
+import { Link, useLocation } from 'react-router-dom';
+import Welcome from "./Welcome";
 
 
 export default class InputField extends React.Component {
@@ -8,7 +8,8 @@ export default class InputField extends React.Component {
   constructor(props){
     super(props)
     this.state={
-        name:""
+        name:"",
+        ifSubmit:false
     };
 }
     
@@ -18,16 +19,25 @@ export default class InputField extends React.Component {
         this.setState({ name: event.target.value});
     }
     handleSubmit = (event) => {
-      const navigate = useNavigate();
-
-        event.preventDefault();
-        this.navigate(
-          '/welcome', 
-          { 
-            state: 
-            { name:this.state}
+      // const navigate = useNavigate();
+      //   event.preventDefault();
+      //   this.navigate(
+      //     '/welcome', 
+      //     { 
+      //       state: 
+      //       { name:this.state}
           
-        });
+      //   });
+      //const location = useLocation();
+        this.setState({ifSubmit:true});
+      }
+      handleWelcome = () =>{
+        if(this.state.ifSubmit){
+          return <Welcome name ={this.state.name}/>
+        }else{
+          return null
+        }
+       
       }
     render(){
         const {name} = this.state
@@ -38,10 +48,11 @@ export default class InputField extends React.Component {
                 </p>
                 <p>name is : {name}</p>
               <input value={this.state.name} onChange={this.handleChange} />
-              
               <button onClick={this.handleSubmit}>
                   submit
               </button>
+             
+              {this.handleWelcome()}
             </div>
           );
     }
